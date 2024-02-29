@@ -8,6 +8,10 @@ title: general.site_title
 url: ""
 environment: staging
 
+country:
+  name: Detroit
+  adjective: Detroit
+
 # Pages
 collections:
   pages:
