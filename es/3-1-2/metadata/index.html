@@ -141,7 +141,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240318192846">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240901172125">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -525,7 +525,7 @@ data-event-label="high"
 
     
       try {
-        var currentValue = normalizeCurrentValue('META_LAST_UPDATE__GLOBAL', "2022-03-31");
+        var currentValue = normalizeCurrentValue('META_LAST_UPDATE__GLOBAL', "2024-03-28");
         var propertyEditor = editor.getEditor('root.META_LAST_UPDATE__GLOBAL');
         propertyEditor.setValue(null);
         propertyEditor.setValue(currentValue);
@@ -565,88 +565,592 @@ data-event-label="high"
       }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_RELATED_INDICATORS__GLOBAL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_INDICATOR_INFO', "");
+        var propertyEditor = editor.getEditor('root.SDG_INDICATOR_INFO');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_INDICATOR_INFO');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_INDICATOR_INFO'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_GOAL', "<p>Goal 3: Ensure healthy lives and promote well-being for all at all ages</p>");
+        var propertyEditor = editor.getEditor('root.SDG_GOAL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_GOAL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_GOAL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_TARGET', "<p>Target 3.1: By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births</p>");
+        var propertyEditor = editor.getEditor('root.SDG_TARGET');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_TARGET');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_TARGET'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_INDICATOR', "<p>Indicator 3.1.2: Proportion of births attended by skilled health personnel</p>");
+        var propertyEditor = editor.getEditor('root.SDG_INDICATOR');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_INDICATOR');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_INDICATOR'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_SERIES_DESCR', "<p>SH_STA_BRTC - Proportion of births attended by skilled health personnel [3.1.2]</p>");
+        var propertyEditor = editor.getEditor('root.SDG_SERIES_DESCR');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_SERIES_DESCR');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_SERIES_DESCR'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('META_LAST_UPDATE', "<p>2024-03-28</p>");
+        var propertyEditor = editor.getEditor('root.META_LAST_UPDATE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: META_LAST_UPDATE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.META_LAST_UPDATE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_RELATED_INDICATORS', "<p>Related to Target 3.1 on reducing maternal mortality, 3.2 on reducing neonatal mortality and 3.8 on achieving universal health coverage (coverage of essential health services)</p>");
+        var propertyEditor = editor.getEditor('root.SDG_RELATED_INDICATORS');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_RELATED_INDICATORS');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_RELATED_INDICATORS'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT', "<p>United Nations Children’s Fund (UNICEF) and World Health Organization (WHO)</p>");
+        var propertyEditor = editor.getEditor('root.CONTACT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_ORGANISATION', "<p>United Nations Children’s Fund (UNICEF) and World Health Organization (WHO)</p>");
+        var propertyEditor = editor.getEditor('root.CONTACT_ORGANISATION');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_ORGANISATION');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_ORGANISATION'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_NAME', "<p></p>");
+        var propertyEditor = editor.getEditor('root.CONTACT_NAME');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_NAME');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_NAME'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('ORGANISATION_UNIT', "<p></p>");
+        var propertyEditor = editor.getEditor('root.ORGANISATION_UNIT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: ORGANISATION_UNIT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.ORGANISATION_UNIT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_FUNCT', "<p></p>");
+        var propertyEditor = editor.getEditor('root.CONTACT_FUNCT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_FUNCT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_FUNCT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_PHONE', "<p></p>");
+        var propertyEditor = editor.getEditor('root.CONTACT_PHONE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_PHONE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_PHONE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_MAIL', "<p></p>");
+        var propertyEditor = editor.getEditor('root.CONTACT_MAIL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_MAIL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_MAIL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_EMAIL', "<p></p>");
+        var propertyEditor = editor.getEditor('root.CONTACT_EMAIL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_EMAIL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_EMAIL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('IND_DEF_CON_CLASS', "<p></p>");
+        var propertyEditor = editor.getEditor('root.IND_DEF_CON_CLASS');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: IND_DEF_CON_CLASS');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.IND_DEF_CON_CLASS'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('STAT_CONC_DEF', "<p>Definition:</p>\n<p>Proportion of births attended by skilled health personnel (generally doctors, nurses or midwives but can refer to other health professionals providing childbirth care) is the proportion of childbirths attended by skilled health personnel. According to the current definition  these are competent maternal and newborn health (MNH) professionals educated, trained and regulated to national and international standards. They are competent to: (i) provide and promote evidence-based, human-rights based, quality, socio-culturally sensitive and dignified care to women and newborns; (ii) facilitate physiological processes during labour and delivery to ensure a clean and positive childbirth experience; and (iii) identify and manage or refer women and/or newborns with complications.</p>");
+        var propertyEditor = editor.getEditor('root.STAT_CONC_DEF');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: STAT_CONC_DEF');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.STAT_CONC_DEF'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('UNIT_MEASURE', "<p>This indicator is reported in proportion (or percentage (%)</p>");
+        var propertyEditor = editor.getEditor('root.UNIT_MEASURE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: UNIT_MEASURE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.UNIT_MEASURE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CLASS_SYSTEM', "<p>An important aspect of this indicator is the reporting of categories or occupational titles of health providers at country level. Standard categories for the indicator include doctor, nurse and midwife. However, some additional categories are currently being reported by some countries. When that is the case, a process of verification is conducted in which the competency level of other categories of health care providers is assessed with national sources and in communication with national counterparts.</p>");
+        var propertyEditor = editor.getEditor('root.CLASS_SYSTEM');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CLASS_SYSTEM');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CLASS_SYSTEM'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SRC_TYPE_COLL_METHOD', "<p>Data source type and data collection method</p>");
+        var propertyEditor = editor.getEditor('root.SRC_TYPE_COLL_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SRC_TYPE_COLL_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SRC_TYPE_COLL_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SOURCE_TYPE', "<p>National-level household surveys are the main data sources used to collect data for skilled health personnel providing childbirth care. These surveys include Demographic and Health Surveys (DHS), Multiple Indicator Cluster Surveys (MICS), Reproductive Health Surveys (RHS) and other national surveys based on similar methodologies. In these surveys the respondent is asked about the last live birth(s) and who helped during delivery for a period up to five years before the interview.\nSurveys are generally undertaken every three to five years. </p>\n<p>Population-based surveys are the preferred data source in countries with a low utilization of childbirth services, where private sector data are excluded from routine data collection, and/or with weak health information systems. </p>\nRoutine service/facility records are a more common data source in countries where a high proportion of births occur in health facilities and are therefore recorded. These data can be used to track the indicator on an annual basis.</p>");
+        var propertyEditor = editor.getEditor('root.SOURCE_TYPE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SOURCE_TYPE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SOURCE_TYPE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COLL_METHOD', "<p>UNICEF and WHO maintain a joint database on SDG 3.1.2: “Proportion of births attended by skilled health personnel” and collaborate to ensure quality and consistency of data sources.  </p>\n<p>As part of the data harmonization process and interaction with countries, an annual country consultation is conducted by UNICEF. During the country consultation, SDG country focal points are contacted for updating and verifying values included in the database and for obtaining new data sources. New data sources are reviewed and assessed jointly with WHO. As part of the process, the national categories or occupational titles of skilled health personnel are verified. The reported data for some countries may include additional categories of trained personnel beyond doctor, nurse and midwife. </p>");
+        var propertyEditor = editor.getEditor('root.COLL_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COLL_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COLL_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('FREQ_COLL', "<p>UNICEF/WHO joint database is updated on an annual basis. However, not all countries report new data on an annual basis. Countries reporting data from household surveys, may report a new value every three-five years, according to their data collection schedule. Data reported from routine administrative sources are regularly available on an annual basis.</p>");
+        var propertyEditor = editor.getEditor('root.FREQ_COLL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: FREQ_COLL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.FREQ_COLL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('REL_CAL_POLICY', "<p>Country reported data and global and regional estimates are published annually; in March by UNICEF on the data website www.data.unicef.org  and by the World Health Organization in May in the World Health Statistics Report (http://www.who.int/whosis/whostat/en/) and the WHO Global Health Observatory (https://www.who.int/data/gho). UNICEF also reports this indicator in the State of the World’s Children report which is on a bi-annual reporting schedule (https://www.unicef.org/reports/state-of-worlds-children).</p>");
+        var propertyEditor = editor.getEditor('root.REL_CAL_POLICY');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: REL_CAL_POLICY');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.REL_CAL_POLICY'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DATA_SOURCE', "<p>Ministries of Health and National Statistical Offices, either through household surveys or routine sources.</p>");
+        var propertyEditor = editor.getEditor('root.DATA_SOURCE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DATA_SOURCE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DATA_SOURCE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COMPILING_ORG', "<p>United Nations Children’s Fund (UNICEF) and World Health Organization (WHO).</p>");
+        var propertyEditor = editor.getEditor('root.COMPILING_ORG');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COMPILING_ORG');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COMPILING_ORG'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('INST_MANDATE', "<p>UNICEF and WHO are co-custodians for the compilation and reporting of this indicator.</p>");
+        var propertyEditor = editor.getEditor('root.INST_MANDATE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: INST_MANDATE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.INST_MANDATE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('OTHER_METHOD', "<p>Other methodological considerations</p>");
+        var propertyEditor = editor.getEditor('root.OTHER_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: OTHER_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.OTHER_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('RATIONALE', "<p>Having a skilled health care provider at the time of childbirth is an important lifesaving intervention for both women and newborns. Not having access to this key assistance is detrimental to women's and newborns’ health because it could cause adverse health outcomes such as the death of the women and/or the newborns or long lasting morbidity. Achieving universal coverage for this indicator is therefore essential for reducing maternal and newborn mortality and morbidity.</p>");
+        var propertyEditor = editor.getEditor('root.RATIONALE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: RATIONALE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.RATIONALE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('REC_USE_LIM', "<p>Births attended by skilled health personnel is an indicator of health care utilization. It is a measure of the health system’s functioning and potential to provide adequate coverage for childbirth. On its own, however, this indicator does not provide insight into the availability or accessibility of services, for example in cases where emergency care is needed. Neither does this indicator capture the quality of care received.</p>\n<p>Data collection and data interpretation in many countries is challenged by lack of guidelines, standardization of professional titles and functions of the health care provider, and in some countries by task-shifting. In addition, many countries have found that there are large gaps between international standards and the competencies of existing health care professionals providing childbirth care. Lack of training and an enabling environment often hinder evidence-based management of common obstetric and neonatal complications.</p>");
+        var propertyEditor = editor.getEditor('root.REC_USE_LIM');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: REC_USE_LIM');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.REC_USE_LIM'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DATA_COMP', "<p>Number of births attended by skilled health personnel (doctor, nurse or midwife) trained in providing quality childbirth care, including giving the necessary support and care in the immediate postpartum period.</p>\n<p>Denominator: The total number of live births in the same period.</p>\n<p>Births attended by skilled health personnel = (number of births attended by skilled health personnel)/(total number of live births) x 100.</p>");
+        var propertyEditor = editor.getEditor('root.DATA_COMP');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DATA_COMP');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DATA_COMP'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DATA_VALIDATION', "<p>As part of the data harmonization process, an annual country consultation is conducted by UNICEF. Country inputs are reviewed and assessed jointly with WHO. During the process, SDG country focal points are contacted for updating and verifying values included in the database and obtaining new sources of data. The national categories of skilled health personnel are verified, and the estimates for some countries may include additional categories of trained personnel beyond doctor, nurse, and midwife. This process serves as validation of the reported values. </p>\n<p>Furthermore, with regards to data obtained from surveys, the validity of such data depends on the correct identification by the women of the credentials of the person attending the childbirth, which may not be obvious in certain countries.</p>");
+        var propertyEditor = editor.getEditor('root.DATA_VALIDATION');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DATA_VALIDATION');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DATA_VALIDATION'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DOC_METHOD', "<p>Definition of skilled health personnel varies between countries. The proportion of births attended by skilled health personnel is calculated as the number of births attended by skilled health personnel (doctors, nurses or midwives) expressed as a proportion of the number of live births in the same period.</p>\n<p>In household surveys, such as DHS, MICS and RHS, the respondent is asked about the most recent birth(s) and who helped during childbirth for a period up to five years before the interview. For consistency of reporting, survey customization teams in country are encouraged to review categories or occupational title of health care providers reported on the previous surveys and ensure comparability. Service/facility records could be used where a high proportion of births occur in health facilities and are recorded. </p>");
+        var propertyEditor = editor.getEditor('root.DOC_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DOC_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DOC_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('QUALITY_MGMNT', "<p>Data are reported to UNICEF on an annual basis during the country consultation. Values are reviewed and assessed to make sure that reported indicator complies with standard definition and methodology.</p>");
+        var propertyEditor = editor.getEditor('root.QUALITY_MGMNT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: QUALITY_MGMNT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.QUALITY_MGMNT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('QUALITY_ASSURE', "<p>As part of the data harmonization process an annual country consultation process is conducted by UNICEF. Country inputs are reviewed and assessed jointly with WHO. During the process, SDG country focal points are contacted for updating and verifying values included in the data bases and obtaining new sources of data. The national categories of skilled health personnel are verified, and the reported data for some countries may include additional categories of trained personnel beyond doctor, nurse, and midwife.</p>");
+        var propertyEditor = editor.getEditor('root.QUALITY_ASSURE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: QUALITY_ASSURE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.QUALITY_ASSURE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('QUALITY_ASSMNT', "<p>Data included in the database is verified through an annual country consultation process and data harmonization process conducted by the two custodian agencies: UNICEF and WHO. All values are also assessed for consistency in terms of standard definition, representativeness, source of information, and quality. </p>");
+        var propertyEditor = editor.getEditor('root.QUALITY_ASSMNT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: QUALITY_ASSMNT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.QUALITY_ASSMNT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COVERAGE', "<p>Data availability:</p>\n<p>Data are available for 191 countries. \nThe lag between the reference year and actual production of data series depends on the availability of the household survey for each country.</p>\n<p>Time series:</p>\n<p>2000-2023</p>\n<p>Disaggregation:<./p>\n<p>For this indicator, when data are reported from household surveys, disaggregation is available for various socio-economic characteristics including age of the mother, residence (urban/rural), household wealth (quintiles), education level of the mother, maternal age, geographic regions. When data are reported from administrative sources, disaggregation is more limited and tend to include only residence. </p>");
+        var propertyEditor = editor.getEditor('root.COVERAGE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COVERAGE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COVERAGE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COMPARABILITY', "<p>Sources of discrepancies:</p>\n<p>Discrepancies are possible if there are national figures compiled at the health facility level. These would differ from the global figures, which are typically based on survey data collected at the household level.</p>\n<p>In terms of survey data, some survey reports may present a total percentage of births attended by a skilled health professional that does not conform to the SDG definition (e.g., total includes provider that is not considered skilled, such as a community health worker). In that case, the proportion of childbirths by a physician, nurse, or a midwife are totalled, consulted with the country and included in the global database as the SDG estimate.</p>\n<p>In some countries where the indicator on skilled health personnel is not actively reported, birth in a health facility (institutional births) is used as a proxy indicator. This is frequent in countries in the Latin America region, and in European and Central Asian regions, where the proportion of births attended by health professionals is very high. Nonetheless, it should be noted that institutional births may underestimate the percentage of births assisted by skilled health professionals, particularly in cases were home births - assisted by skilled health professionals - are prevalent.</p>");
+        var propertyEditor = editor.getEditor('root.COMPARABILITY');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COMPARABILITY');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COMPARABILITY'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('OTHER_DOC', "<p>URL: <a href\"https://data.unicef.org/topic/maternal-health/delivery-care/#\">https://data.unicef.org/topic/maternal-health/delivery-care/#</a></p>");
+        var propertyEditor = editor.getEditor('root.OTHER_DOC');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: OTHER_DOC');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.OTHER_DOC'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('national_data_updated_date', "2024-08-12");
+        var propertyEditor = editor.getEditor('root.national_data_updated_date');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: national_data_updated_date');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.national_data_updated_date'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('national_metadata_updated_date', "2024-08-30");
+        var propertyEditor = editor.getEditor('root.national_metadata_updated_date');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: national_metadata_updated_date');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.national_metadata_updated_date'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('un_designated_tier', "<p>Indicator 3.1.2: Proportion of births attended by skilled health personnel</p>");
+        var propertyEditor = editor.getEditor('root.un_designated_tier');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: un_designated_tier');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.un_designated_tier'));
 
     
@@ -786,12 +1290,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Buscar';</script>
 
-<script src='/assets/js/sdg.js?v=20240318192846'></script>
+<script src='/assets/js/sdg.js?v=20240901172125'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240318192846"></script><script>
+    <script src="/assets/js/custom.js?v=20240901172125"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

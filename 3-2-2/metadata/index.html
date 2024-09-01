@@ -141,7 +141,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20240318192846">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20240901172125">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -525,7 +525,7 @@ data-event-label="high"
 
     
       try {
-        var currentValue = normalizeCurrentValue('META_LAST_UPDATE__GLOBAL', "2023-03-31");
+        var currentValue = normalizeCurrentValue('META_LAST_UPDATE__GLOBAL', "2024-03-28");
         var propertyEditor = editor.getEditor('root.META_LAST_UPDATE__GLOBAL');
         propertyEditor.setValue(null);
         propertyEditor.setValue(currentValue);
@@ -565,88 +565,592 @@ data-event-label="high"
       }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_RELATED_INDICATORS__GLOBAL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_INDICATOR_INFO', "");
+        var propertyEditor = editor.getEditor('root.SDG_INDICATOR_INFO');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_INDICATOR_INFO');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_INDICATOR_INFO'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_GOAL', "");
+        var propertyEditor = editor.getEditor('root.SDG_GOAL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_GOAL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_GOAL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_TARGET', "");
+        var propertyEditor = editor.getEditor('root.SDG_TARGET');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_TARGET');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_TARGET'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_INDICATOR', "");
+        var propertyEditor = editor.getEditor('root.SDG_INDICATOR');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_INDICATOR');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_INDICATOR'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_SERIES_DESCR', "");
+        var propertyEditor = editor.getEditor('root.SDG_SERIES_DESCR');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_SERIES_DESCR');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_SERIES_DESCR'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('META_LAST_UPDATE', "");
+        var propertyEditor = editor.getEditor('root.META_LAST_UPDATE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: META_LAST_UPDATE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.META_LAST_UPDATE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SDG_RELATED_INDICATORS', "");
+        var propertyEditor = editor.getEditor('root.SDG_RELATED_INDICATORS');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SDG_RELATED_INDICATORS');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SDG_RELATED_INDICATORS'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT', "");
+        var propertyEditor = editor.getEditor('root.CONTACT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_ORGANISATION', "");
+        var propertyEditor = editor.getEditor('root.CONTACT_ORGANISATION');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_ORGANISATION');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_ORGANISATION'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_NAME', "");
+        var propertyEditor = editor.getEditor('root.CONTACT_NAME');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_NAME');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_NAME'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('ORGANISATION_UNIT', "");
+        var propertyEditor = editor.getEditor('root.ORGANISATION_UNIT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: ORGANISATION_UNIT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.ORGANISATION_UNIT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_FUNCT', "");
+        var propertyEditor = editor.getEditor('root.CONTACT_FUNCT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_FUNCT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_FUNCT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_PHONE', "");
+        var propertyEditor = editor.getEditor('root.CONTACT_PHONE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_PHONE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_PHONE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_MAIL', "");
+        var propertyEditor = editor.getEditor('root.CONTACT_MAIL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_MAIL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_MAIL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CONTACT_EMAIL', "");
+        var propertyEditor = editor.getEditor('root.CONTACT_EMAIL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CONTACT_EMAIL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CONTACT_EMAIL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('IND_DEF_CON_CLASS', "Definition, concepts, and classifications");
+        var propertyEditor = editor.getEditor('root.IND_DEF_CON_CLASS');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: IND_DEF_CON_CLASS');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.IND_DEF_CON_CLASS'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('STAT_CONC_DEF', "Definition: \nThe neonatal mortality rate is the probability that a child born in a specific year or period will die during the first 28 completed days of life, if subject to age-specific mortality rates of that period, expressed per 1000 live births. \n \nNeonatal deaths (deaths among live births during the first 28 completed days of life) may be subdivided into early neonatal deaths, occurring during the first 7 days of life, and late neonatal deaths, occurring after the 7th day but before the 28th completed day of life. ");
+        var propertyEditor = editor.getEditor('root.STAT_CONC_DEF');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: STAT_CONC_DEF');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.STAT_CONC_DEF'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('UNIT_MEASURE', "Number (SH_DYN_NMRTN); Deaths per 1,000 live births (SH_DYN_NMRT)");
+        var propertyEditor = editor.getEditor('root.UNIT_MEASURE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: UNIT_MEASURE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.UNIT_MEASURE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('CLASS_SYSTEM', "Not applicable");
+        var propertyEditor = editor.getEditor('root.CLASS_SYSTEM');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: CLASS_SYSTEM');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.CLASS_SYSTEM'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SRC_TYPE_COLL_METHOD', " Data source type and data collection method ");
+        var propertyEditor = editor.getEditor('root.SRC_TYPE_COLL_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SRC_TYPE_COLL_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SRC_TYPE_COLL_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('SOURCE_TYPE', "Nationally representative estimates of child mortality can be derived from several different sources, including civil registration and sample surveys. Demographic surveillance sites and hospital data are excluded as they are  not nationally representative. The preferred source of data is a civil registration system that records births and deaths on a continuous basis. If registration is complete and the system functions efficiently, the resulting estimates will be accurate and timely. However, many countries do not have well-functioning vital registration systems. In such cases household surveys, such as the UNICEF-supported Multiple Indicator Cluster Surveys (MICS), the USAID-supported Demographic and Health Surveys (DHS) and periodic population censuses have become the primary sources of data on under-five and neonatal mortality. These surveys ask women about the survival of their children, and it is these reports that provide the basis of child mortality estimates for a majority of low- and middle-income countries. These data are subject to sampling and non-sampling errors, which might be substantial. \n \nCivil registration \nCivil registration is the preferred data source for under-five, infant and neonatal mortality estimation. Neonatal mortality rates are calculated using the number of neonatal deaths and the number of live births over a period. For civil registration data, initially annual observations were constructed for all observation years in a country. \n \nPopulation census and household survey data \nThe majority of survey data comes from the full birth history (FBH), whereby women are asked for the date of birth of each of their children, whether the child is still alive, and if not the age at death. ");
+        var propertyEditor = editor.getEditor('root.SOURCE_TYPE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: SOURCE_TYPE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.SOURCE_TYPE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COLL_METHOD', "For neonatal mortality, UNICEF and the United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) compile data from all available data sources, including household surveys, censuses, and vital registration data. UNICEF and the UN IGME compile these data whenever they are available publicly and then conduct data quality assessment. UNICEF also collects data through UNICEF country offices by reaching national counterpart(s).  The UN IGME also collects vital registration data reported by Ministries of Health or other relevant agencies to WHO.  \n \nTo increase the transparency of the estimation process, the UN IGME has developed a child mortality web portal, https://childmortality.org/, which includes all available data and shows estimates for each country. Once the new estimates are finalized, the web portal will be updated to reflect all available data and the new estimates. \n");
+        var propertyEditor = editor.getEditor('root.COLL_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COLL_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COLL_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('FREQ_COLL', "The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) underlying database is continuously updated whenever new empirical data become available. ");
+        var propertyEditor = editor.getEditor('root.FREQ_COLL');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: FREQ_COLL');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.FREQ_COLL'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('REL_CAL_POLICY', "A new round of United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates is released annually, usually in the 3rd or 4th quarter. ");
+        var propertyEditor = editor.getEditor('root.REL_CAL_POLICY');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: REL_CAL_POLICY');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.REL_CAL_POLICY'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DATA_SOURCE', "A new round of United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates is released annually, usually in the 3rd or 4th quarter.");
+        var propertyEditor = editor.getEditor('root.DATA_SOURCE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DATA_SOURCE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DATA_SOURCE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COMPILING_ORG', "United Nations Children's Fund (UNICEF)");
+        var propertyEditor = editor.getEditor('root.COMPILING_ORG');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COMPILING_ORG');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COMPILING_ORG'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('INST_MANDATE', "The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME), led by the United Nations Children’s Fund (UNICEF) and including members from the World Health Organization (WHO), the World Bank Group and the United Nations Population Division, was established in 2004 to advance the work on monitoring progress towards the achievement of child survival goals and to augment country capacity to collect high quality data on and produce timely estimates of child mortality. Every year, the UN IGME estimates levels and trends in neonatal mortality at the global, regional and country level and  provides an assessment of current progress towards the SDG targets.");
+        var propertyEditor = editor.getEditor('root.INST_MANDATE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: INST_MANDATE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.INST_MANDATE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('OTHER_METHOD', "Other methodological considerations ");
+        var propertyEditor = editor.getEditor('root.OTHER_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: OTHER_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.OTHER_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('RATIONALE', "Mortality rates among young children are a key output indicator for child health and well-being, and, more broadly, for social and economic development. It is a closely watched public health indicator because it reflects the access of children and communities to basic health interventions such as vaccination, medical treatment of infectious diseases and adequate nutrition. ");
+        var propertyEditor = editor.getEditor('root.RATIONALE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: RATIONALE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.RATIONALE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('REC_USE_LIM', "A civil registration system that continuously records all births and deaths in a population is the preferred source of high-quality underlying data on under-five mortality but these systems are not well developed in many low- and middle-income countries. Instead, household surveys and population censuses are the primary sources of underlying data in these countries. \n\nThe reliance on multiple data sources, i.e. surveys and census conducted several years apart and producing retrospective time series, can result in disparate mortality rates from different sources, sometimes referring to the same time period. Available data also suffer from sampling and nonsampling errors, including misreporting of age and sex, survivor selection bias, underreporting of child deaths, and recall errors as data are collected retrospectively. Further misclassifications can also impact the accuracy of data, for example, early neonatal deaths may be classified as stillbirths. Thus, simply comparing two country data points from different sources and drawing a line between them is not a technically sound way to assess levels and trends. Given varying levels of data quality across different sources, this sort of trend assessment will provide misleading results. Hence, the United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) fits a statistical model to these data that takes into account these various data sources to produce annualized estimates. \n\nIt is important to keep these challenges in mind when looking at available country data and also when discrepancies between country data and the UN IGME estimates are being discussed. The following\npoints are important to highlight:\n\n•\tThe UN IGME aims to minimize the errors for each estimate, harmonize trends over time and produce up-to-date and properly assessed estimates of child mortality. Thus, UN IGME estimates are derived from country data. Notably, UN IGME assesses the quality of underlying data sources and adjusts data when necessary.\n\n•\tNational estimates may refer to an earlier calendar year than the UN IGME estimates. This is particularly the case where estimates from the most recent national survey are used as the national estimate, since the survey estimates derived from a birth history are retrospective and typically refer to a period before the year of the survey, which may be several years behind the target year for the UN IGME estimates. National estimates may also use a different combination of data sources, or different projection or calculation methods.\n\n•\tIn the absence of error-free data, there will always be uncertainty around data and estimates. To allow for added comparability, the UN IGME generates estimates with uncertainty bounds. When discussing the UN IGME estimates, it’s important to look at the uncertainty ranges, which might be fairly wide in the case of some countries.");
+        var propertyEditor = editor.getEditor('root.REC_USE_LIM');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: REC_USE_LIM');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.REC_USE_LIM'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DATA_COMP', "The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates are derived from nationally representative data from censuses, surveys or vital registration systems. The UN IGME does not use any covariates to derive its estimates (except in the case of neonatal mortality estimation, which incorporates the relatively more data-rich under-five mortality rate estimates in the modelling). It only applies a curve fitting method to good-quality empirical data to derive trend estimates after data quality assessment. In most cases, the UN IGME estimates are close to the underlying data. The UN IGME aims to minimize the errors for each estimate, harmonize trends over time and produce up-to-date and properly assessed estimates. The UN IGME produces neonatal mortality rate (NMR) estimates with a Bayesian spline regression model, which models the ratio of neonatal mortality rate / (under-five mortality rate - neonatal mortality rate). Estimates of NMR are obtained by recombining the estimates of the ratio with the UN IGME-estimated under-five mortality rate. See the references for details.  \n \nFor the underlying data mentioned above, the most frequently used methods are as follows: \n \nCivil registration: The neonatal mortality rate can be calculated from the number of children who died during the first 28 days of life and the number of live births. \n \nCensuses and surveys: Censuses and surveys often include questions on household deaths in the last 12 months, which can be used to calculate mortality estimates. \n \nSurveys: A direct method is used based on a full birth history, a series of detailed questions on each child a woman has given birth to during her lifetime. Neonatal, post-neonatal, infant, child and under-five mortality estimates can be derived from the full birth history. \n");
+        var propertyEditor = editor.getEditor('root.DATA_COMP');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DATA_COMP');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DATA_COMP'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DATA_VALIDATION', "The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) conducts an annual country consultation whereby the draft UN IGME estimates, empirical data used to derive the estimates, and notes on methodology are sent to National Statistical Offices and to Ministries of Health or other relevant agencies for review. National Statistical Offices, Ministries of Health or other relevant agencies have the opportunity to provide feedback or comments on estimates and methods, as well as supply additional empirical data during this consultation. ");
+        var propertyEditor = editor.getEditor('root.DATA_VALIDATION');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DATA_VALIDATION');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DATA_VALIDATION'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('DOC_METHOD', "Detailed methodological descriptions can be found at the following: \nhttps://childmortality.org/methods and https://childmortality.org/wp-content/uploads/2024/03/UN-IGME_explanatory-note_EN_2023.pdf");
+        var propertyEditor = editor.getEditor('root.DOC_METHOD');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: DOC_METHOD');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.DOC_METHOD'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('QUALITY_MGMNT', "The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) applies a standard estimation method across all countries in the interest of comparability. This method aims to estimate a smooth trend curve of age-specific mortality rates, accounting for potential outliers and biases in data sources and averaging over the possibly many disparate data sources for a country. A more detailed descripition of the different phases of the statistical production process is available in the annual UN IGME report and at https://childmortality.org/methods.");
+        var propertyEditor = editor.getEditor('root.QUALITY_MGMNT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: QUALITY_MGMNT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.QUALITY_MGMNT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('QUALITY_ASSURE', "Quality is assured by applying standard statistical and demographic methods to all input data and conducting regular data quality assessments. Countries are also consulted on the draft estimates during the annual country consultation process. ");
+        var propertyEditor = editor.getEditor('root.QUALITY_ASSURE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: QUALITY_ASSURE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.QUALITY_ASSURE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('QUALITY_ASSMNT', "The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) aims to produce transparent, timely and accurate annual estimates of under-five mortality. Data quality is critical to that end. The UN IGME assesses data quality using both internal and external validaity checks and does not include data sources with substantial non-sampling errors or omissions as underlying empirical data in its statistical model.");
+        var propertyEditor = editor.getEditor('root.QUALITY_ASSMNT');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: QUALITY_ASSMNT');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.QUALITY_ASSMNT'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COVERAGE', "Data availability: \nThis indicator is available for all countries from 1990 (or earlier depending on the availability of empirical data for each country before 1990) to the most recent target reference year, typically one or two years behind the current calendar year. \n\nDisaggregation: \nDue to data limitations, neonatal mortality rates are not estimated for any conventional disaggregation at this time.");
+        var propertyEditor = editor.getEditor('root.COVERAGE');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COVERAGE');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COVERAGE'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('COMPARABILITY', "Sources of discrepancies: \nThe United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates are based on nationally representative data. Countries may use a single source as their official estimate or apply methods different from the UN IGME methods to derive official national estimates. The differences between the UN IGME estimates and national official estimates are usually not large if empirical data are high quality. \n \nMany countries lack a single source of high-quality data covering the last several decades, instead relying on multiple data sources to estimate mortality. Data from different sources require different calculation methods and may suffer from different errors, for example random errors in sample surveys or systematic errors due to misreporting. As a result, different surveys often yield widely different estimates of under-five mortality for a given time period and available data collected by countries are often inconsistent across sources. It is important to analyse, reconcile and evaluate all data sources simultaneously for each country. \n\nEach new survey or data point must be examined in the context of all other sources, including previous data, and with respect to any sampling or non-sampling errors that may be present (such as misreporting of age and survivor selection bias; underreporting of child deaths is also common). The UN IGME assesses the quality of underlying data sources and adjusts data when necessary. Furthermore, the latest data produced by countries often are not current estimates but refer to an earlier reference period. Thus, the UN IGME also extrapolates estimates to a common reference year. \n\nIn order to reconcile these differences and take better account of the systematic biases associated with the various types of data inputs, the UN IGME has developed an estimation method to fit a smoothed trend curve to a set of observations and to extrapolate that trend to a defined time point. The UN IGME aims to minimize the errors for each estimate, harmonize trends over time and produce up-to-date and properly assessed estimates of child mortality. In the absence of error-free data, there will always be uncertainty around data and estimates. To allow for added comparability, the UN IGME generates such estimates with uncertainty bounds. Applying a consistent methodology also allows for comparisons between countries, despite the varied number and types of data sources. The UN IGME applies a common methodology across countries and uses original empirical data from each country but does not report figures produced by individual countries using other methods, which would not be comparable to other country estimates. ");
+        var propertyEditor = editor.getEditor('root.COMPARABILITY');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: COMPARABILITY');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.COMPARABILITY'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('OTHER_DOC', "URL: \nAll data sources, estimates and detailed methods are documented on the website https://childmortality.org.\n \nReferences: \nUnited Nations Inter-agency Group for Child Mortality Estimation (UN IGME). Levels and trends in child mortality. Report 2023. New York: UNICEF, 2024. Available at https://childmortality.org/wp-content/uploads/2024/03/UNIGME-2023-Child-Mortality-Report.pdf\n\nUnited Nations Inter-agency Group for Child Mortality Estimation (UN IGME). Subnational Under-five and Neonatal Mortality Estimates, 2000–2021. New York: UNICEF, 2023. Available at https://childmortality.org/wp-content/uploads/2023/10/UN-IGME_Subnational_U5MR_and_NMR_2000-2021-1.pdf \n \nAlexander, M. and L. Alkema, Global Estimation of Neonatal Mortality using a Bayesian Hierarchical Splines Regression Model Demographic Research, vol. 38, 2018, pp. 335–372. \n \nAlkema L, New JR. Global estimation of child mortality using a Bayesian B-spline bias-reduction method. The Annals of Applied Statistics. 2014; 8(4): 2122–2149. Available at: https://arxiv.org/abs/1309.1602  \n \nAlkema L, Chao F, You D, Pedersen J, Sawyer CC. National, regional, and global sex ratios of infant, child, and under-5 mortality and identification of countries with outlying ratios: a systematic assessment. The Lancet Global Health. 2014; 2(9): e521–e530. \n \nPedersen J, Liu J. Child Mortality Estimation: Appropriate Time Periods for Child Mortality Estimates from Full Birth Histories. Plos Medicine. 2012;9(8). Available at: http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001289\n \nSilva R. Child Mortality Estimation: Consistency of Under-Five Mortality Rate Estimates Using Full Birth Histories and Summary Birth Histories. Plos Medicine. 2012;9(8). Available at: http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001296 \n \nWalker N, Hill K, Zhao FM. Child Mortality Estimation: Methods Used to Adjust for Bias due to AIDS in Estimating Trends in Under-Five Mortality. Plos Medicine. 2012;9(8). Available at: http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001298");
+        var propertyEditor = editor.getEditor('root.OTHER_DOC');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: OTHER_DOC');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.OTHER_DOC'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('national_data_updated_date', "2024-08-12");
+        var propertyEditor = editor.getEditor('root.national_data_updated_date');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: national_data_updated_date');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.national_data_updated_date'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('national_metadata_updated_date', "2024-08-30");
+        var propertyEditor = editor.getEditor('root.national_metadata_updated_date');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: national_metadata_updated_date');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.national_metadata_updated_date'));
 
+    
+      try {
+        var currentValue = normalizeCurrentValue('un_designated_tier', "Indicator 3.2.2: Neonatal mortality rate");
+        var propertyEditor = editor.getEditor('root.un_designated_tier');
+        propertyEditor.setValue(null);
+        propertyEditor.setValue(currentValue);
+        
+      }
+      catch (e) {
+        console.log(e.message);
+        console.log('Unable to set config key: un_designated_tier');
+      }
     propertyEditorAccessibilityFixes(editor.getEditor('root.un_designated_tier'));
 
     
@@ -786,12 +1290,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20240318192846'></script>
+<script src='/assets/js/sdg.js?v=20240901172125'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20240318192846"></script><script>
+    <script src="/assets/js/custom.js?v=20240901172125"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
