@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=Promise%2CString.prototype.includes%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.find%2CObject.assign%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://detroitdata.github.io/open-sdg-data/es',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded. A "context" parameter
+  // is also passed which contains additional information.
+  dataRounding: function(value, context) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  // Disaggregations which should be ignored on indicator pages.
+  ignoredDisaggregations: [],
+
+  language: 'es',
+
+  mapColors: {
+    "default": [
+        "#c4e1c6",
+        "#b0d1b3",
+        "#9bc2a1",
+        "#87b28f",
+        "#74a37c",
+        "#60946b",
+        "#4d8559",
+        "#3a7747",
+        "#276836"
+    ]
+},
+};
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        Indicador 3.2.2 -
+        
+        global_indicators.3-2-2-Neonatal Mortality Rate - Indicadores para los Objetivos de Desarrollo Sostenible
+    </title>
+
+
+
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+
+        <!--[if IE 9]>
+        <script src="/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico" />
+
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20241111012212">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/>
+        
+
+        
+
+
+        <!--[if IE]>
+        <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        
+
+    </head>
+<body class="language-es
+layout-indicator-iframe
+">
+<!-- <div class="container"> -->
+
+<script>translations['header'] = {"alpha":"Alfa","default_contrast":"Contraste estándar","disable_high_contrast":"Desactivar alto contraste","disclaimer":"Este es un sitio web de desarrollo. Agradecemos sus <a href=\"mailto:%email_contacts.suggestions\">comentarios</a>.","enable_high_contrast":"Habilitar alto contraste","hide_menu":"Ocultar el menú de navegación","high_contrast":"Alto contraste","internet_explorer_message":"Hemos detectado que está utilizando Internet Explorer para visitar este sitio web. Internet Explorer ahora está siendo eliminado por Microsoft. Como resultado, este sitio web ya no es compatible con ninguna versión de Internet Explorer. Algunas características de este sitio no funcionarán. Debe usar un navegador moderno como Edge, Chrome, Firefox o Safari. Si tiene dificultades para instalar o acceder a un navegador diferente, comuníquese con su equipo de soporte de TI.","internet_explorer_message_title":"Este navegador de Internet ya no es compatible","logo_title":"Ir a la página de inicio","show_menu":"Mostrar el menú de navegación","skip_link":"Saltar al contenido principal","tag_line":"17 Objetivos para transformar nuestro mundo","toggle_menu":"Alternar menú. Haga clic para expandir o contraer el menú.","toggle_search":"Barra de búsqueda. Haga clic para ampliar o reducir la barra de búsqueda."};</script>
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Mostrar subcategorías: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Subcategorías - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Seleccionar todo</button>
+            <button data-type="clear">Limpiar todo</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Disponible cuando se selecciona «<%= translations.t(_.find(edges, { To: fieldItem.field }).From) %>»
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          No hay opciones disponibles debido a los filtros anteriores
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+  <% if(units.length > 1) { %>
+  
+    <h4>Unidad de medida</h4>
+    <fieldset>
+      <legend class="sr-only">Unidad de medida</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+  <% } %>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+  <% if(serieses.length > 1) { %>
+  
+    <h4>Serie</h4>
+    <fieldset>
+      <legend class="sr-only">Serie</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var isProxy = (proxySerieses.includes(seriesItem)) %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%> <%=isProxy ? proxyPill : ''%></label>
+      <% }); %>
+    </fieldset>
+  
+  <% } %>
+  
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"Objetivo del indicador para 2030","annotation_series_break":"Ruptura de la serie","announce_data_added":"Gráfico y tabla actualizados para incluir los datos.","announce_data_not_available":"La tabla y el gráfico no muestran datos.","announce_data_removed":"Gráfico y tabla actualizados para excluir los datos.","apply":"Aplicar","cancel":"Cancelar","change_breakdowns":"Cambiar los desgloses","chart":"Gráfico","chart_annotation":"Anotación en un gráfico","clear_all":"Limpiar todo","clear_selections":"Borrar selecciones","data_keyboard_navigation":"Pulse Enter para navegar por los puntos de datos con las teclas de flecha izquierda y derecha.","data_not_available":"Esta información no está disponible. Elija datos alternativos para mostrar.","data_tabular_alternative":"Para la alternativa de datos en forma de tabla, véase la pestaña Tabla.","dataset_size_warning":"Hay demasiados conjuntos de datos para mostrar en el gráfico. No todo se mostrará hasta que elimine algunas selecciones.","download_chart":"Descargar los datos del gráfico (.csv)","download_chart_image":"Descargar la imagen del gráfico (.png)","download_chart_image_title":"Descargar la imagen del gráfico como PNG","download_csv":"Descargar los datos (.csv)","download_csv_title":"Descargar los datos como CSV","download_geojson":"Descargar los datos del mapa (.geojson)","download_geojson_title":"Descargar los datos del mapa como GeoJSON","download_headline":"Descargar los datos de los titulares (.csv)","download_headline_title":"Descargar datos globales como CSV","download_source":"Descargar datos de origen (.csv)","download_source_for_disaggregations":"Descargar los datos de origen para los desgloses (.csv)","download_source_sdmx":"Descargar el código fuente SDMX (.xml)","download_source_sdmx_title":"Descargar los datos fuente como SDMX","download_source_title":"Descargar los datos fuente como CSV","download_table":"Descargar los datos de la tabla (.csv)","edit":"Editar el indicador","edit_configuration":"Editar la configuración","edit_data":"Editar datos","edit_metadata":"Editar metadatos","empty_metadata_placeholder":"No disponible para este indicador","empty_metadata_placeholder_sources":"No disponible para esta fuente","footnote":"Nota","geographical_area":"Área geográfica","global_metadata":"Metadatos globales","global_metadata_blurb":"Esta tabla proporciona información sobre los metadatos para los indicadores de los ODS tal como los define la Comisión de Estadística de la ONU. La <a href=\"https://unstats.un.org/sdgs/metadata/\">División de Estadística de las Naciones Unidas proporciona</a> los metadatos globales completos .","headline_data":"Datos principales","legend_help":"Haga clic en la leyenda para eliminar líneas individuales del gráfico.","loading":"Cargando","loading_map":"Cargando mapa","map":"Mapa","map_fullscreen":"Ver mapa a pantalla completa","map_fullscreen_exit":"Salir del mapa a pantalla completa","map_search":"Búsqueda en el mapa","map_search_cancel":"Borrar búsqueda en el mapa","map_search_hide":"Ocultar la búsqueda en los mapas","map_search_show":"Mostrar búsqueda en el mapa","map_slider_back":"Ver datos de los mapas para el período de tiempo anterior","map_slider_forward":"Ver los datos del mapa para el siguiente periodo de tiempo","map_slider_keyboard":"Vea los datos del mapa a lo largo del periodo de tiempo utilizando las teclas de flecha izquierda y derecha","map_slider_mouse":"Navegar por los datos del mapa por periodo de tiempo","map_year_slider":"Deslizador del año","map_zoom_home":"Restablecer el zoom predeterminado del mapa","map_zoom_in":"Zoom en el mapa","map_zoom_out":"Reducir el mapa","national_metadata":"Metadatos nacionales","national_metadata_blurb":"Esta tabla proporciona metadatos para el indicador real disponible a partir de las estadísticas de %country.name más cercanas al correspondiente indicador global de SDG. Tenga en cuenta que incluso cuando el indicador global de ODS esté totalmente disponible a partir de las estadísticas de %country.adjective, se debe consultar esta tabla para obtener información sobre la metodología nacional y otra información de metadatos específicos de %country.adjective.","next":"Siguiente indicador","no_data_hint":"No hay opciones disponibles debido a los filtros anteriores","no_headline_data":"No hay datos principales disponibles","plot_legend_description":"Leyenda del gráfico: lista de líneas incluidas en el gráfico","previous":"Indicador anterior","proxy":"Proxy","proxy_description":"Este indicador contiene algunos datos alternativos a los especificados por la Organización de las Naciones Unidas (ONU). Este indicador es la coincidencia más adecuada disponible actualmente.","select_all":"Seleccionar todo","series":"Serie","series_help":"Elija categorías de las listas desplegables a continuación para ver diferentes desgloses de los datos. Algunos no estarán disponibles hasta que se elija un nivel superior.","source":"Fuente","sources":"Fuentes","status":"Estado del indicador","sub_categories":"Subcategorías","sub_categories_show":"Mostrar subcategorías:","table":"Tabla","table_column_sort":"Pulse para ordenar por esta columna","tags":"Etiquetas","total":"Total","unit":"Unidad","unit_of_measurement":"Unidad de medida","units_type":"Tipo de unidades","variable_hint":"Disponible cuando se selecciona «%field»","view_indicator_list":"Ver la lista de indicadores de este objetivo"};</script>
+
+<script>translations['data'] = {"Year":"Año"};</script>
+
+
+<div class="heading goal-banner indicator goal-3">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+                <a href="/es/3/" aria-label="Ver las metas e indicadores del Objetivo 3" title="Ver las metas e indicadores del Objetivo 3">
+                    <img src="https://open-sdg.org/sdg-translations/assets/img/goals/es/3.png"
+                        alt="Salud y Bienestar - Objetivo 3"
+                        id="goal-3"
+                        class="goal-icon-image goal-icon-image-" />
+                </a>
+            </div>
+            <div class="col-8 col-md-9 col-lg-10 indicator-details">
+            
+                <div>
+                    <h1>
+                        
+                        Indicador 3.2.2
+                        
+                        <span class="lead-copy">global_indicators.3-2-2-Neonatal Mortality Rate</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main-content" class="container goal-3" role="main">
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_3-2-2'
+  data-id="3-2-2"
+  data-country="Detroit"
+  data-charttitle="global_indicators.3-2-2-Neonatal Mortality Rate"
+  data-charttitles="{&quot;-series&quot;:&quot;Neonatal Mortality Rate&quot;,&quot;-unit&quot;:&quot;Deaths Rate per 1,000&quot;,&quot;-title&quot;:&quot;Neonatal Mortality Rate&quot;}"
+  data-measurementunit="Neonatal Mortality Rate"
+  data-xaxislabel=""
+  data-showdata="true"
+  data-graphtype="bar"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap="false"
+  data-startvalues="{&quot;-field&quot;:&quot;Unit&quot;,&quot;-value&quot;:&quot;Death rate per 1,000&quot;}"
+  data-graphlimits="[]"
+  data-stackeddisaggregation=""
+  data-graphannotations="[]"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Año&quot;},{&quot;name&quot;:&quot;Unit&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;Death Rate per 1,000&quot;,&quot;&quot;]},&quot;title&quot;:&quot;Unit&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="[]"
+  data-proxy=""
+  data-proxyseries="null"
+>
+  
+  <span role="status" class="visually-hidden" id="indicator-data-view-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-unit-status"></span>
+  <span role="status" class="visually-hidden" id="indicator-data-series-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Subcategorías</h4>
+    <p>Elija categorías de las listas desplegables a continuación para ver diferentes desgloses de los datos. Algunos no estarán disponibles hasta que se elija un nivel superior.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    
+    <a role="button" href="https://detroitdata.github.io/open-sdg-data/es/data/3-2-2.csv" class="btn btn-primary btn-download" download='indicator_3-2-2.csv' tabindex='0' role='button'>Descargar datos de origen (.csv)</a>
+
+    <p class="no-js-disaggregation-hint">Descargar los datos de origen para los desgloses (.csv)</p>
+
+    
+    <h3>No hay datos principales disponibles</h3>
+    
+  </div>
+
+  
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded mt-4" style="display:none;">
+
+    <div style="display: none;">
+    <span id="table-alternative">Para la alternativa de datos en forma de tabla, véase la pestaña Tabla.</span>
+  </div>
+  <ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-chartview"
+          data-bs-target="#chartview"
+          aria-controls="chartview"
+          aria-describedby="table-alternative"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+        
+      >Gráfico</button>
+    </li>
+    
+    <li role="presentation"
+      class="
+        nav-item
+        
+        
+      ">
+      <button
+        class="nav-link "
+        data-bs-toggle="tab"
+        role="tab"
+        type="button"
+        
+          id="tab-tableview"
+          data-bs-target="#tableview"
+          aria-controls="tableview"
+          data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+        
+      >Tabla</button>
+    </li>
+    
+  </ul>
+  
+    <div class="tab-content data-view">
+    
+      
+        <div role="tabpanel" class="tab-pane active" id="chartview">
+          
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Advertencia:</span></i>
+      Hay demasiados conjuntos de datos para mostrar en el gráfico. No todo se mostrará hasta que elimine algunas selecciones.
+    </div>
+
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">
+            global_indicators.3-2-2-Neonatal Mortality Rate
+          </h4>
+          <div id="chart" class="plot-container">
+            <canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Área geográfica:</dt>
+        <dd>Detroit</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unidad de medida:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Nota:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Datos actualizados por última vez:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button
+          id="btnSave"
+          title="Descargar la imagen del gráfico como PNG"
+          aria-label="Descargar la imagen del gráfico como PNG"
+          class='btn btn-primary btn-download'>
+          Descargar la imagen del gráfico (.png)
+        </button><!--
+   --></div>
+    </div>
+
+
+
+        </div>
+      
+    
+      
+        <div role="tabpanel" class="tab-pane " id="tableview">
+          <div style="display: none;">
+            <span id="column-sort-info">Pulse para ordenar por esta columna</span>
+          </div>
+          <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+        <dt>Área geográfica:</dt>
+        <dd>Detroit</dd>
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unidad de medida:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Nota:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Datos actualizados por última vez:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    </dl>
+    
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+        </div>
+      
+    
+  </div>
+  
+
+  </div>
+
+</section>
+
+  
+  <div class="mt-4">
+<ul class="nav nav-tabs" role="tablist">
+    
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link active"
+                data-bs-toggle="tab"
+                id="tab-national"
+                data-bs-target="#national"
+                aria-controls="national"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to indicator.national_metadata tab"
+
+            >Metadatos nacionales</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-global"
+                data-bs-target="#global"
+                aria-controls="global"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to indicator.global_metadata tab"
+
+            >Metadatos globales</button>
+        </li>
+    
+        
+        
+        
+        
+        <li role="presentation" class="nav-item">
+            <button
+                type="button"
+                class="nav-link "
+                data-bs-toggle="tab"
+                id="tab-sources"
+                data-bs-target="#sources"
+                aria-controls="sources"
+                role="tab"
+                data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to indicator.sources tab"
+
+            >Fuentes</button>
+        </li>
+    
+    
+    
+</ul>
+
+<div class="tab-content">
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane active" id="national">
+            <article>
+                <p>Esta tabla proporciona metadatos para el indicador real disponible a partir de las estadísticas de Detroit más cercanas al correspondiente indicador global de SDG. Tenga en cuenta que incluso cuando el indicador global de ODS esté totalmente disponible a partir de las estadísticas de Detroit, se debe consultar esta tabla para obtener información sobre la metodología nacional y otra información de metadatos específicos de Detroit.</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+  
+  
+  
+  
+  
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+        
+          
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Definición, conceptos y clasificaciones </th>
+        <td>
+          
+            <p>Definition, concepts, and classifications</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Definición y conceptos </th>
+        <td>
+          
+            <p>Definition: 
+The neonatal mortality rate is the probability that a child born in a specific year or period will die during the first 28 completed days of life, if subject to age-specific mortality rates of that period, expressed per 1000 live births.</p>
+
+<p>Neonatal deaths (deaths among live births during the first 28 completed days of life) may be subdivided into early neonatal deaths, occurring during the first 7 days of life, and late neonatal deaths, occurring after the 7th day but before the 28th completed day of life.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Unidad de medida </th>
+        <td>
+          
+            <p>Number (SH_DYN_NMRTN); Deaths per 1,000 live births (SH_DYN_NMRT)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Clasificaciones </th>
+        <td>
+          
+            <p>Not applicable</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Tipo de fuente de datos y método de recogida </th>
+        <td>
+          
+            <p>Data source type and data collection method</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Fuentes de datos </th>
+        <td>
+          
+            <p>Nationally representative estimates of child mortality can be derived from several different sources, including civil registration and sample surveys. Demographic surveillance sites and hospital data are excluded as they are  not nationally representative. The preferred source of data is a civil registration system that records births and deaths on a continuous basis. If registration is complete and the system functions efficiently, the resulting estimates will be accurate and timely. However, many countries do not have well-functioning vital registration systems. In such cases household surveys, such as the UNICEF-supported Multiple Indicator Cluster Surveys (MICS), the USAID-supported Demographic and Health Surveys (DHS) and periodic population censuses have become the primary sources of data on under-five and neonatal mortality. These surveys ask women about the survival of their children, and it is these reports that provide the basis of child mortality estimates for a majority of low- and middle-income countries. These data are subject to sampling and non-sampling errors, which might be substantial.</p>
+
+<p>Civil registration 
+Civil registration is the preferred data source for under-five, infant and neonatal mortality estimation. Neonatal mortality rates are calculated using the number of neonatal deaths and the number of live births over a period. For civil registration data, initially annual observations were constructed for all observation years in a country.</p>
+
+<p>Population census and household survey data 
+The majority of survey data comes from the full birth history (FBH), whereby women are asked for the date of birth of each of their children, whether the child is still alive, and if not the age at death.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Método de recogida de datos </th>
+        <td>
+          
+            <p>For neonatal mortality, UNICEF and the United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) compile data from all available data sources, including household surveys, censuses, and vital registration data. UNICEF and the UN IGME compile these data whenever they are available publicly and then conduct data quality assessment. UNICEF also collects data through UNICEF country offices by reaching national counterpart(s).  The UN IGME also collects vital registration data reported by Ministries of Health or other relevant agencies to WHO.</p>
+
+<p>To increase the transparency of the estimation process, the UN IGME has developed a child mortality web portal, https://childmortality.org/, which includes all available data and shows estimates for each country. Once the new estimates are finalized, the web portal will be updated to reflect all available data and the new estimates.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Calendario de recopilación de datos </th>
+        <td>
+          
+            <p>The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) underlying database is continuously updated whenever new empirical data become available.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Calendario de publicación de datos </th>
+        <td>
+          
+            <p>A new round of United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates is released annually, usually in the 3rd or 4th quarter.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Proveedores de datos </th>
+        <td>
+          
+            <p>A new round of United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates is released annually, usually in the 3rd or 4th quarter.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Compiladores de datos </th>
+        <td>
+          
+            <p>United Nations Children’s Fund (UNICEF)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Mandato institucional </th>
+        <td>
+          
+            <p>The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME), led by the United Nations Children’s Fund (UNICEF) and including members from the World Health Organization (WHO), the World Bank Group and the United Nations Population Division, was established in 2004 to advance the work on monitoring progress towards the achievement of child survival goals and to augment country capacity to collect high quality data on and produce timely estimates of child mortality. Every year, the UN IGME estimates levels and trends in neonatal mortality at the global, regional and country level and  provides an assessment of current progress towards the SDG targets.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Otras consideraciones metodológicas </th>
+        <td>
+          
+            <p>Other methodological considerations</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Justificación </th>
+        <td>
+          
+            <p>Mortality rates among young children are a key output indicator for child health and well-being, and, more broadly, for social and economic development. It is a closely watched public health indicator because it reflects the access of children and communities to basic health interventions such as vaccination, medical treatment of infectious diseases and adequate nutrition.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Comentarios y limitaciones </th>
+        <td>
+          
+            <p>A civil registration system that continuously records all births and deaths in a population is the preferred source of high-quality underlying data on under-five mortality but these systems are not well developed in many low- and middle-income countries. Instead, household surveys and population censuses are the primary sources of underlying data in these countries.</p>
+
+<p>The reliance on multiple data sources, i.e. surveys and census conducted several years apart and producing retrospective time series, can result in disparate mortality rates from different sources, sometimes referring to the same time period. Available data also suffer from sampling and nonsampling errors, including misreporting of age and sex, survivor selection bias, underreporting of child deaths, and recall errors as data are collected retrospectively. Further misclassifications can also impact the accuracy of data, for example, early neonatal deaths may be classified as stillbirths. Thus, simply comparing two country data points from different sources and drawing a line between them is not a technically sound way to assess levels and trends. Given varying levels of data quality across different sources, this sort of trend assessment will provide misleading results. Hence, the United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) fits a statistical model to these data that takes into account these various data sources to produce annualized estimates.</p>
+
+<p>It is important to keep these challenges in mind when looking at available country data and also when discrepancies between country data and the UN IGME estimates are being discussed. The following
+points are important to highlight:</p>
+
+<p>•	The UN IGME aims to minimize the errors for each estimate, harmonize trends over time and produce up-to-date and properly assessed estimates of child mortality. Thus, UN IGME estimates are derived from country data. Notably, UN IGME assesses the quality of underlying data sources and adjusts data when necessary.</p>
+
+<p>•	National estimates may refer to an earlier calendar year than the UN IGME estimates. This is particularly the case where estimates from the most recent national survey are used as the national estimate, since the survey estimates derived from a birth history are retrospective and typically refer to a period before the year of the survey, which may be several years behind the target year for the UN IGME estimates. National estimates may also use a different combination of data sources, or different projection or calculation methods.</p>
+
+<p>•	In the absence of error-free data, there will always be uncertainty around data and estimates. To allow for added comparability, the UN IGME generates estimates with uncertainty bounds. When discussing the UN IGME estimates, it’s important to look at the uncertainty ranges, which might be fairly wide in the case of some countries.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Método de cálculo </th>
+        <td>
+          
+            <p>The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates are derived from nationally representative data from censuses, surveys or vital registration systems. The UN IGME does not use any covariates to derive its estimates (except in the case of neonatal mortality estimation, which incorporates the relatively more data-rich under-five mortality rate estimates in the modelling). It only applies a curve fitting method to good-quality empirical data to derive trend estimates after data quality assessment. In most cases, the UN IGME estimates are close to the underlying data. The UN IGME aims to minimize the errors for each estimate, harmonize trends over time and produce up-to-date and properly assessed estimates. The UN IGME produces neonatal mortality rate (NMR) estimates with a Bayesian spline regression model, which models the ratio of neonatal mortality rate / (under-five mortality rate - neonatal mortality rate). Estimates of NMR are obtained by recombining the estimates of the ratio with the UN IGME-estimated under-five mortality rate. See the references for details.</p>
+
+<p>For the underlying data mentioned above, the most frequently used methods are as follows:</p>
+
+<p>Civil registration: The neonatal mortality rate can be calculated from the number of children who died during the first 28 days of life and the number of live births.</p>
+
+<p>Censuses and surveys: Censuses and surveys often include questions on household deaths in the last 12 months, which can be used to calculate mortality estimates.</p>
+
+<p>Surveys: A direct method is used based on a full birth history, a series of detailed questions on each child a woman has given birth to during her lifetime. Neonatal, post-neonatal, infant, child and under-five mortality estimates can be derived from the full birth history.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Validación </th>
+        <td>
+          
+            <p>The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) conducts an annual country consultation whereby the draft UN IGME estimates, empirical data used to derive the estimates, and notes on methodology are sent to National Statistical Offices and to Ministries of Health or other relevant agencies for review. National Statistical Offices, Ministries of Health or other relevant agencies have the opportunity to provide feedback or comments on estimates and methods, as well as supply additional empirical data during this consultation.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Métodos y orientaciones a disposición de los países para la recopilación de los datos a nivel nacional </th>
+        <td>
+          
+            <p>Detailed methodological descriptions can be found at the following: 
+https://childmortality.org/methods and https://childmortality.org/wp-content/uploads/2024/03/UN-IGME_explanatory-note_EN_2023.pdf</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Gestión de la calidad </th>
+        <td>
+          
+            <p>The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) applies a standard estimation method across all countries in the interest of comparability. This method aims to estimate a smooth trend curve of age-specific mortality rates, accounting for potential outliers and biases in data sources and averaging over the possibly many disparate data sources for a country. A more detailed descripition of the different phases of the statistical production process is available in the annual UN IGME report and at https://childmortality.org/methods.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Seguro de calidad </th>
+        <td>
+          
+            <p>Quality is assured by applying standard statistical and demographic methods to all input data and conducting regular data quality assessments. Countries are also consulted on the draft estimates during the annual country consultation process.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Evaluación de la calidad </th>
+        <td>
+          
+            <p>The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) aims to produce transparent, timely and accurate annual estimates of under-five mortality. Data quality is critical to that end. The UN IGME assesses data quality using both internal and external validaity checks and does not include data sources with substantial non-sampling errors or omissions as underlying empirical data in its statistical model.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Disponibilidad y desglose de datos </th>
+        <td>
+          
+            <p>Data availability: 
+This indicator is available for all countries from 1990 (or earlier depending on the availability of empirical data for each country before 1990) to the most recent target reference year, typically one or two years behind the current calendar year.</p>
+
+<p>Disaggregation: 
+Due to data limitations, neonatal mortality rates are not estimated for any conventional disaggregation at this time.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Comparabilidad/desviación de las normas internacionales </th>
+        <td>
+          
+            <p>Sources of discrepancies: 
+The United Nations Inter-agency Group for Child Mortality Estimation (UN IGME) estimates are based on nationally representative data. Countries may use a single source as their official estimate or apply methods different from the UN IGME methods to derive official national estimates. The differences between the UN IGME estimates and national official estimates are usually not large if empirical data are high quality.</p>
+
+<p>Many countries lack a single source of high-quality data covering the last several decades, instead relying on multiple data sources to estimate mortality. Data from different sources require different calculation methods and may suffer from different errors, for example random errors in sample surveys or systematic errors due to misreporting. As a result, different surveys often yield widely different estimates of under-five mortality for a given time period and available data collected by countries are often inconsistent across sources. It is important to analyse, reconcile and evaluate all data sources simultaneously for each country.</p>
+
+<p>Each new survey or data point must be examined in the context of all other sources, including previous data, and with respect to any sampling or non-sampling errors that may be present (such as misreporting of age and survivor selection bias; underreporting of child deaths is also common). The UN IGME assesses the quality of underlying data sources and adjusts data when necessary. Furthermore, the latest data produced by countries often are not current estimates but refer to an earlier reference period. Thus, the UN IGME also extrapolates estimates to a common reference year.</p>
+
+<p>In order to reconcile these differences and take better account of the systematic biases associated with the various types of data inputs, the UN IGME has developed an estimation method to fit a smoothed trend curve to a set of observations and to extrapolate that trend to a defined time point. The UN IGME aims to minimize the errors for each estimate, harmonize trends over time and produce up-to-date and properly assessed estimates of child mortality. In the absence of error-free data, there will always be uncertainty around data and estimates. To allow for added comparability, the UN IGME generates such estimates with uncertainty bounds. Applying a consistent methodology also allows for comparisons between countries, despite the varied number and types of data sources. The UN IGME applies a common methodology across countries and uses original empirical data from each country but does not report figures produced by individual countries using other methods, which would not be comparable to other country estimates.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Referencias y documentación </th>
+        <td>
+          
+            <p>URL: 
+All data sources, estimates and detailed methods are documented on the website https://childmortality.org.</p>
+
+<p>References: 
+United Nations Inter-agency Group for Child Mortality Estimation (UN IGME). Levels and trends in child mortality. Report 2023. New York: UNICEF, 2024. Available at https://childmortality.org/wp-content/uploads/2024/03/UNIGME-2023-Child-Mortality-Report.pdf</p>
+
+<p>United Nations Inter-agency Group for Child Mortality Estimation (UN IGME). Subnational Under-five and Neonatal Mortality Estimates, 2000–2021. New York: UNICEF, 2023. Available at https://childmortality.org/wp-content/uploads/2023/10/UN-IGME_Subnational_U5MR_and_NMR_2000-2021-1.pdf</p>
+
+<p>Alexander, M. and L. Alkema, Global Estimation of Neonatal Mortality using a Bayesian Hierarchical Splines Regression Model Demographic Research, vol. 38, 2018, pp. 335–372.</p>
+
+<p>Alkema L, New JR. Global estimation of child mortality using a Bayesian B-spline bias-reduction method. The Annals of Applied Statistics. 2014; 8(4): 2122–2149. Available at: https://arxiv.org/abs/1309.1602</p>
+
+<p>Alkema L, Chao F, You D, Pedersen J, Sawyer CC. National, regional, and global sex ratios of infant, child, and under-5 mortality and identification of countries with outlying ratios: a systematic assessment. The Lancet Global Health. 2014; 2(9): e521–e530.</p>
+
+<p>Pedersen J, Liu J. Child Mortality Estimation: Appropriate Time Periods for Child Mortality Estimates from Full Birth Histories. Plos Medicine. 2012;9(8). Available at: http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001289</p>
+
+<p>Silva R. Child Mortality Estimation: Consistency of Under-Five Mortality Rate Estimates Using Full Birth Histories and Summary Birth Histories. Plos Medicine. 2012;9(8). Available at: http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001296</p>
+
+<p>Walker N, Hill K, Zhao FM. Child Mortality Estimation: Methods Used to Adjust for Bias due to AIDS in Estimating Trends in Under-Five Mortality. Plos Medicine. 2012;9(8). Available at: http://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001298</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Datos actualizados por última vez </th>
+        <td>
+          
+            Aug 12, 2024
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Metadatos actualizados por última vez </th>
+        <td>
+          
+            Aug 30, 2024
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="global">
+            <article>
+                <p>Esta tabla proporciona información sobre los metadatos para los indicadores de los ODS tal como los define la Comisión de Estadística de la ONU. La <a href="https://unstats.un.org/sdgs/metadata/">División de Estadística de las Naciones Unidas proporciona</a> los metadatos globales completos .</p>
+
+                <table class="table metadata-content">
+  <tbody>
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Indicador </th>
+        <td>
+          
+            <p>Indicator 3.2.2: Neonatal mortality rate </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Meta </th>
+        <td>
+          
+            <p>Target 3.2: By 2030, end preventable deaths of newborns and children under 5 years of age, with all countries aiming to reduce neonatal mortality to at least as low as 12 per 1,000 live births and under-5 mortality to at least as low as 25 per 1,000 live births</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Actualización de metadatos </th>
+        <td>
+          
+            <p>2024-03-28</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Organizaciones internacionales responsables del seguimiento global </th>
+        <td>
+          
+            <p>United Nations Children&apos;s Fund (UNICEF) </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Indicadores relacionados </th>
+        <td>
+          
+            <p>3.2.1: Under-five mortality rate </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      <tr>
+        <th scope="row">Nivel designado por la ONU </th>
+        <td>
+          
+            <p>Indicator 3.2.2: Neonatal mortality rate</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+  </tbody>
+</table>
+
+            </article>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div role="tabpanel" class="tab-pane " id="sources">
+            <article>
+                
+                <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+
+            </article>
+        </div>
+        
+    
+    
+</div>
+
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.2.2/dist/chartjs-plugin-annotation.min.js" integrity="sha256-XuHhf6q+GD7fscc96mTm/228GXf1Nn9wOYOE0EgeFzY=" crossorigin="anonymous"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'Ocultar';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Buscar';</script>
+
+<script src='/assets/js/sdg.js?v=20241111012212'></script>
+
+
+    
+    
+    <script src="/assets/js/custom.js?v=20241111012212"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>
+    new pym.Child();
+</script>
+
+</body>
+</html>
