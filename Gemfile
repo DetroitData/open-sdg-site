@@ -6,3 +6,5 @@ gem "jekyll-remote-theme", "0.4.3"
 gem "deep_merge"
 gem "jekyll-open-sdg-plugins", "2.3.0"
 gem "rexml"
+gem "kramdown-parser-gfm", "~> 1.1"
+
