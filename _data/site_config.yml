@@ -111,7 +111,7 @@ graph_color_headline_high_contrast: '#55a6e5'
 graph_color_set: accessible
 graph_color_list: []
 graph_color_number: 0
-graph_title_from_series: false
+graph_title_from_series: true
 header_language_toggle: dropdown
 hide_empty_metadata: true
 hide_single_series: true
@@ -203,9 +203,10 @@ metadata_tabs:
   - scope: global
     title: indicator.global_metadata
     description: indicator.global_metadata_blurb
-  - scope: sources
-    title: indicator.sources
-    description: ''
+  - scope: sources_alt
+    title: Sources
+    description: Data sources for this development goal.
+    placeholder: No sources are available at this time
 meta_tags: []
 news:
   category_links: false
@@ -229,6 +230,9 @@ reporting_status:
   status_types:
     - value: notstarted
       label: status.no_data_available
+      hide_on_goal_pages: false
+    - value: inprogress
+      label: status.in_progress
       hide_on_goal_pages: false
     - value: complete
       label: status.reported_online
