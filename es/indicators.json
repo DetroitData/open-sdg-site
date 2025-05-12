@@ -14,14 +14,6 @@
           "status": "notstarted"
         },
         {
-          "id": "1-1-1 ",
-          "title": "global_indicators.1-1-1 -title",
-          "description": "",
-          "keywords": "",
-          "href": "/es/1-1-1 /",
-          "status": "notstarted"
-        },
-        {
           "id": "1-2-1",
           "title": "Proporción de la población que vive por debajo del umbral nacional de pobreza, desglosada por sexo y edad",
           "description": "",
@@ -159,11 +151,11 @@
         },
         {
           "id": "2-2-2",
-          "title": "Prevalencia de la malnutrición (peso para la estatura, desviación típica > +2 o < -2 de la mediana de los patrones de crecimiento infantil de la OMS) entre los niños menores de 5 años, desglosada por tipo (emaciación y sobrepeso)",
+          "title": "2-2-2-Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)",
           "description": "",
           "keywords": "",
           "href": "/es/2-2-2/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "2-2-3",
@@ -263,7 +255,7 @@
         },
         {
           "id": "3-1-2",
-          "title": "global_indicators.3-1-2-Proportion of Births attened by skilled personnel",
+          "title": "3-1-2-Proportion of Births attened by skilled personnel",
           "description": "",
           "keywords": "",
           "href": "/es/3-1-2/",
@@ -279,7 +271,7 @@
         },
         {
           "id": "3-2-2",
-          "title": "global_indicators.3-2-2-Neonatal Mortality Rate",
+          "title": "3-2-2-Neonatal Mortality Rate",
           "description": "",
           "keywords": "",
           "href": "/es/3-2-2/",
@@ -291,55 +283,55 @@
           "description": "",
           "keywords": "",
           "href": "/es/3-3-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-3-2",
-          "title": "Incidencia de la tuberculosis por cada 100.000 habitantes",
+          "title": "3-3-2-Tuberculosis incidence per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/es/3-3-2/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-3-3",
-          "title": "Incidencia de la malaria por cada 1.000 habitantes",
+          "title": "Malaria incidence per 1,000 population",
           "description": "",
           "keywords": "",
           "href": "/es/3-3-3/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-3-4",
-          "title": "Incidencia de la hepatitis B por cada 100.000 habitantes",
+          "title": "3-3-4-Hepatitis B incidence per 100,000 population",
           "description": "",
           "keywords": "",
           "href": "/es/3-3-4/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-3-5",
-          "title": "Número de personas que requieren intervenciones contra enfermedades tropicales desatendidas",
+          "title": "3-3-5-Number of people requiring interventions against neglected tropical diseases",
           "description": "",
           "keywords": "",
           "href": "/es/3-3-5/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-4-1",
-          "title": "Tasa de mortalidad atribuida a las enfermedades cardiovasculares, el cáncer, la diabetes o las enfermedades respiratorias crónicas",
+          "title": "3-4-1-Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease",
           "description": "",
           "keywords": "",
           "href": "/es/3-4-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-4-2",
-          "title": "Tasa de mortalidad por suicidio",
+          "title": "3-4-2 Suicide mortality rate",
           "description": "",
           "keywords": "",
           "href": "/es/3-4-2/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-5-1",
@@ -359,35 +351,35 @@
         },
         {
           "id": "3-6-1",
-          "title": "Tasa de mortalidad por lesiones debidas a accidentes de tráfico",
+          "title": "3-6-1-Death rate due to road traffic injuries",
           "description": "",
           "keywords": "",
           "href": "/es/3-6-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-7-1",
-          "title": "Proporción de mujeres en edad de procrear (entre 15 y 49 años) que cubren sus necesidades de planificación familiar con métodos modernos",
+          "title": "3-7-1-Proportion of women of reproductive age (aged 15–49 years) who have their need for family planning satisfied with modern methods",
           "description": "",
           "keywords": "",
           "href": "/es/3-7-1/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-7-2",
-          "title": "Tasa de fecundidad de las adolescentes (entre 10 y 14 años y entre 15 y 19 años) por cada 1.000 mujeres de ese grupo de edad",
+          "title": "3-7-2-Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group",
           "description": "",
           "keywords": "",
           "href": "/es/3-7-2/",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "3-8-1",
-          "title": "Cobertura de los servicios de salud esenciales",
+          "title": "3-8-1-title",
           "description": "",
           "keywords": "",
           "href": "/es/3-8-1/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "3-8-2",
@@ -415,27 +407,27 @@
         },
         {
           "id": "3-9-3",
-          "title": "Tasa de mortalidad atribuida a intoxicaciones involuntarias",
+          "title": "3-9-3-Mortality rate attributed to unintentional poisoning",
           "description": "",
           "keywords": "",
           "href": "/es/3-9-3/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "3-a-1",
-          "title": "Prevalencia del consumo actual de tabaco a partir de los 15 años de edad (edades ajustadas)",
+          "title": "3-a-1-Age-standardized prevalence of current tobacco use among persons aged 15 years and older",
           "description": "",
           "keywords": "",
           "href": "/es/3-a-1/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "3-b-1",
-          "title": "Proporción de la población inmunizada con todas las vacunas incluidas en cada programa nacional",
+          "title": "3-b-1-Proportion of the target population covered by all vaccines included in their national programme",
           "description": "",
           "keywords": "",
           "href": "/es/3-b-1/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "3-b-2",
@@ -447,11 +439,11 @@
         },
         {
           "id": "3-b-3",
-          "title": "Proporción de centros de salud que disponen de un conjunto básico de medicamentos esenciales asequibles de manera sostenible",
+          "title": "3-b-3-Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis",
           "description": "",
           "keywords": "",
           "href": "/es/3-b-3/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "3-c-1",
@@ -495,11 +487,11 @@
         },
         {
           "id": "4-1-2",
-          "title": "Índice de finalización (enseñanza primaria, primer ciclo de enseñanza secundaria y segundo ciclo de enseñanza secundaria)",
+          "title": "4-1-2-Completion rate (primary education, lower secondary education, upper secondary education)",
           "description": "",
           "keywords": "",
           "href": "/es/4-1-2/",
-          "status": "notstarted"
+          "status": "inprogress"
         },
         {
           "id": "4-2-1",
@@ -1271,7 +1263,7 @@
         },
         {
           "id": "11-5-2",
-          "title": "Pérdidas económicas directas en relación con el PIB mundial, daños en la infraestructura esencial y número de interrupciones de los servicios básicos atribuidos a desastres",
+          "title": "Pérdidas económicas directas atribuidas a catástrofes en relación con el producto interior bruto (PIB) mundial",
           "description": "",
           "keywords": "",
           "href": "/es/11-5-2/",

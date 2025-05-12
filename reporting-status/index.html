@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=Promise%2CString.prototype.includes%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.find%2CObject.assign%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex%2Cfetch"></script>
 <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
 
         <script>
@@ -140,7 +140,7 @@ var translations = {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20241111023404">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20250512152616">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -317,18 +317,23 @@ data-event-label="high"
         <h2 class="status-goal">
             Overall reporting status
         </h2>
-        <span class="total"><span>250</span> indicators</span>
+        <span class="total"><span>249</span> indicators</span>
         
         <div class="summary">
             <div class="statuses">
             
             <div>
-                <span class="status notstarted"><span class="status-inner">244</span></span><strong>No data available</strong><span class="value">98%</span>
+                <span class="status notstarted"><span class="status-inner">226</span></span><strong>No data available</strong><span class="value">91%</span>
             </div>
             
             
             <div>
-                <span class="status complete"><span class="status-inner">6</span></span><strong>Reported online</strong><span class="value">2%</span>
+                <span class="status inprogress"><span class="status-inner">7</span></span><strong>status.in_progress</strong><span class="value">3%</span>
+            </div>
+            
+            
+            <div>
+                <span class="status complete"><span class="status-inner">16</span></span><strong>Reported online</strong><span class="value">6%</span>
             </div>
             
             <br style="clear:both;">
@@ -339,13 +344,19 @@ data-event-label="high"
             
             
             
-            <span class="notstarted" style="width:97.6%" title="No data available: 98%"></span>
+            <span class="notstarted" style="width:90.76305220883533%" title="No data available: 91%"></span>
             
             
             
             
             
-            <span class="complete" style="width:2.4%" title="Reported online: 2%"></span>
+            <span class="inprogress" style="width:2.8112449799196786%" title="status.in_progress: 3%"></span>
+            
+            
+            
+            
+            
+            <span class="complete" style="width:6.42570281124498%" title="Reported online: 6%"></span>
             
             </div>
         
@@ -362,13 +373,18 @@ data-event-label="high"
         <h3 class="status-goal">
             <a href="/1/">No poverty</a>
         </h3>
-        <span class="total">14 indicators</span>
+        <span class="total">13 indicators</span>
         
         <div class="summary">
             <div class="statuses">
                 
                 <div>
-                    <span class="status notstarted"><span class="status-inner">14</span></span><strong>No data available</strong><span class="value">100%</span>
+                    <span class="status notstarted"><span class="status-inner">13</span></span><strong>No data available</strong><span class="value">100%</span>
+                </div>
+                
+                
+                <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
                 </div>
                 
                 
@@ -385,6 +401,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -413,7 +435,12 @@ data-event-label="high"
             <div class="statuses">
                 
                 <div>
-                    <span class="status notstarted"><span class="status-inner">14</span></span><strong>No data available</strong><span class="value">93%</span>
+                    <span class="status notstarted"><span class="status-inner">13</span></span><strong>No data available</strong><span class="value">87%</span>
+                </div>
+                
+                
+                <div>
+                    <span class="status inprogress"><span class="status-inner">1</span></span><strong>status.in_progress</strong><span class="value">7%</span>
                 </div>
                 
                 
@@ -429,7 +456,13 @@ data-event-label="high"
                 
                 
                 
-                <span class="notstarted" style="width:93.33333333333333%" title="No data available: 93%"></span>
+                <span class="notstarted" style="width:86.66666666666667%" title="No data available: 87%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:6.666666666666667%" title="status.in_progress: 7%"></span>
                 
                 
                 
@@ -458,12 +491,17 @@ data-event-label="high"
             <div class="statuses">
                 
                 <div>
-                    <span class="status notstarted"><span class="status-inner">23</span></span><strong>No data available</strong><span class="value">82%</span>
+                    <span class="status notstarted"><span class="status-inner">8</span></span><strong>No data available</strong><span class="value">29%</span>
                 </div>
                 
                 
                 <div>
-                    <span class="status complete"><span class="status-inner">5</span></span><strong>Reported online</strong><span class="value">18%</span>
+                    <span class="status inprogress"><span class="status-inner">5</span></span><strong>status.in_progress</strong><span class="value">18%</span>
+                </div>
+                
+                
+                <div>
+                    <span class="status complete"><span class="status-inner">15</span></span><strong>Reported online</strong><span class="value">54%</span>
                 </div>
                 
                 <br style="clear:both;">
@@ -474,13 +512,19 @@ data-event-label="high"
                 
                 
                 
-                <span class="notstarted" style="width:82.14285714285714%" title="No data available: 82%"></span>
+                <span class="notstarted" style="width:28.57142857142857%" title="No data available: 29%"></span>
                 
                 
                 
                 
                 
-                <span class="complete" style="width:17.857142857142858%" title="Reported online: 18%"></span>
+                <span class="inprogress" style="width:17.857142857142858%" title="status.in_progress: 18%"></span>
+                
+                
+                
+                
+                
+                <span class="complete" style="width:53.57142857142857%" title="Reported online: 54%"></span>
                 
                 </div>
         
@@ -503,7 +547,12 @@ data-event-label="high"
             <div class="statuses">
                 
                 <div>
-                    <span class="status notstarted"><span class="status-inner">12</span></span><strong>No data available</strong><span class="value">100%</span>
+                    <span class="status notstarted"><span class="status-inner">11</span></span><strong>No data available</strong><span class="value">92%</span>
+                </div>
+                
+                
+                <div>
+                    <span class="status inprogress"><span class="status-inner">1</span></span><strong>status.in_progress</strong><span class="value">8%</span>
                 </div>
                 
                 
@@ -519,7 +568,13 @@ data-event-label="high"
                 
                 
                 
-                <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                <span class="notstarted" style="width:91.66666666666666%" title="No data available: 92%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:8.333333333333332%" title="status.in_progress: 8%"></span>
                 
                 
                 
@@ -553,6 +608,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -565,6 +625,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -598,6 +664,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -610,6 +681,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -643,6 +720,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -655,6 +737,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -688,6 +776,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -700,6 +793,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -733,6 +832,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -745,6 +849,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -778,6 +888,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -790,6 +905,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -823,6 +944,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -835,6 +961,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -868,6 +1000,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -880,6 +1017,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -913,6 +1056,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -925,6 +1073,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -958,6 +1112,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -970,6 +1129,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -1003,6 +1168,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -1015,6 +1185,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -1048,6 +1224,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -1060,6 +1241,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -1093,6 +1280,11 @@ data-event-label="high"
                 
                 
                 <div>
+                    <span class="status inprogress"><span class="status-inner">0</span></span><strong>status.in_progress</strong><span class="value">0%</span>
+                </div>
+                
+                
+                <div>
                     <span class="status complete"><span class="status-inner">0</span></span><strong>Reported online</strong><span class="value">0%</span>
                 </div>
                 
@@ -1105,6 +1297,12 @@ data-event-label="high"
                 
                 
                 <span class="notstarted" style="width:100.0%" title="No data available: 100%"></span>
+                
+                
+                
+                
+                
+                <span class="inprogress" style="width:0.0%" title="status.in_progress: 0%"></span>
                 
                 
                 
@@ -1196,12 +1394,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20241111023404'></script>
+<script src='/assets/js/sdg.js?v=20250512152616'></script>
 
 
     
     
-    <script src="/assets/js/custom.js?v=20241111023404"></script><script>
+    <script src="/assets/js/custom.js?v=20250512152616"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

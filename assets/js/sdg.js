@@ -1292,7 +1292,7 @@ var YEAR_COLUMN = 'Year';
 var VALUE_COLUMN = 'Value';
 // Note this headline color is overridden in indicatorView.js.
 var HEADLINE_COLOR = '#777777';
-var GRAPH_TITLE_FROM_SERIES = false;
+var GRAPH_TITLE_FROM_SERIES = true;
 
   /**
  * Model helper functions with general utility.
@@ -2785,17 +2785,6 @@ function inputEdges(edges) {
       return true;
     });
   }
-  var configuredObservationAttributes = null;
-  if (configuredObservationAttributes && configuredObservationAttributes.length > 0) {
-    configuredObservationAttributesFlat = configuredObservationAttributes.map(function(att) { return att.field; });
-    edgesData = edgesData.filter(function(edge) {
-      if (configuredObservationAttributesFlat.includes(edge.To) || configuredObservationAttributesFlat.includes(edge.From)) {
-        return false;
-      }
-      return true;
-    });
-  }
-
   return edgesData;
 }
 
